@@ -20,14 +20,14 @@ Weex，基于VUE的替代Native开发方案，性能好，体验佳，可组件�
 
 ## 4、使用通用组件console.log，打印调试信息（其实是alert）
 ```javascript
-        created() {
-                        if (weex.config.env.platform == 'Web') {
-                                this.env = 'web'
-                        } else {
-                                this.env = 'weex'
-                                console.log = require('./module/console').log
-                        }
-                },
+created() {
+        if (weex.config.env.platform == 'Web') {
+                this.env = 'web'
+        } else {
+                this.env = 'weex'
+                console.log = require('./module/console').log
+        }
+},
 ```
 
 ## 5、使用weex debug查看调试信息
