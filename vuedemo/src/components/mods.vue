@@ -40,7 +40,7 @@
 
 <style>
     /* 引入外部css的方法 */
-    @import "//res.suning.cn/public/v5/common/2.0.0/m-common.css";
+    /* @import "//res.suning.cn/public/v5/common/2.0.0/m-common.css"; */
 
     .father-mod{
         font-size: .6rem
