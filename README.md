@@ -7,6 +7,7 @@ Weex，基于VUE的替代Native开发方案，性能好，体验佳，可组件�
 
 # Vue-Demo（Vue2.0）
 [Vue的环境搭建](https://github.com/ymcdhr/Weex-Demo/issues/3)<br>
+[Vue的调试方法](https://github.com/ymcdhr/Weex-Demo/issues/4)<br>
 [Vue组件的使用]()<br>
 [Vue组件的通信]()<br>
 [Vue的生命周期]()<br>
