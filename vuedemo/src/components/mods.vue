@@ -5,12 +5,18 @@
 
         路由到父组件：
 
-        <!-- 子组件1：vue生命周期的示例 -->
-          <mod1></mod1>  
+        	<!-- 子组件1：vue生命周期的示例 -->
+        <!--<mod1></mod1>-->  
 
          <!-- 子组件2：父组件传值给子组件，通过父组件的属性 -->
          <!-- 注意：父组件的属性不能有大写，只能用小写或者横线 -->
-          <mod2 :mod-data="modData"></mod2> 
+         <!--<mod2 :mod-data="modData"></mod2>--> 
+          
+          
+         <sn-nav title="导航标题"></sn-nav>
+         
+         <sn-slide></sn-slide>
+         
     </div>
 
 
@@ -33,7 +39,9 @@
         // 初始化引入子组件,两种引入方式
         components: { 
             'mod1': mod1,
-            'mod2': require('./mod2.vue')
+            'mod2': require('./mod2.vue'),
+            'sn-nav': require('./sn-nav.vue'),
+            'sn-slide': require('./sn-slide.vue')
          }
     }
 </script>
