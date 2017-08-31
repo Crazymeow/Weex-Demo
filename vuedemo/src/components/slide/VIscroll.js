@@ -5,7 +5,7 @@
  */
 
 //var IScroll =  require('http://res.suning.cn/public/v5/mod/iscroll-lite/5.1.3/iscroll-lite.js');
-import IScroll from 'http://res.suning.cn/public/v5/mod/iscroll-lite/5.1.3/iscroll-lite.js';
+import IScroll from '../../../module/iscroll-lite.5.1.3.js';
 
 const VIScroll = {
     install(Vue, options) {
@@ -20,7 +20,12 @@ const VIScroll = {
                     event.preventDefault();
                 })
                 // 建立新的iscroll
-                new IScroll(el, iscrollOptions);
+                // 为什么要加上setTimeout？https://segmentfault.com/q/1010000005353311
+                // iscroll 需要获取到父元素的高度在初始化，需要监听到menu值变化后再初始化即可
+                setTimeout(function(){
+    	                vnode.scroll = new IScroll(el, iscrollOptions);
+    	                el.scroll = vnode.scroll;
+                },100);
             },
             update(el, binding, vnode, oldVnode) {
                   // 判断输入参数
@@ -31,16 +36,23 @@ const VIScroll = {
                 el.addEventListener('touchmove', event => {
                     event.preventDefault();
                 })
-                // 建立新的iscroll
-                new IScroll(el, iscrollOptions);
+                // 建立新的iscroll，不需要这个？
+                // vnode.scroll = new IScroll(el, iscrollOptions);
+                // el.scroll = vnode.scroll;
             },
             unbind(el, binding, vnode, oldVnode) {
                 /**
                  * 解除绑定时要把iscroll销毁
                  */
-                vnode.scroll = oldVnode.scroll;
-                vnode.scroll.destroy();
-                vnode.scroll = null;
+                try{
+    	                //vnode.scroll = oldVnode.scroll;
+	                vnode.scroll.destroy();
+	                vnode.scroll = null;
+                }
+                catch(e){
+                		console.log("ERROR:",e.message);
+                }
+
             }
         })
     }
